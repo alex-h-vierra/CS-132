@@ -10,7 +10,7 @@ void printChessBoard();
 
 int main()
 {
-    moveKnight(1, 1, 1);
+    moveKnight(0, 0, 1);
     printChessBoard();
 }
 
@@ -21,13 +21,13 @@ bool moveKnight(int row, int col, int moveNumber)
     {
         return true;
     }
-    if (row < ROW && col < COL, row >= 0, col >= 0 && CHESSBOARD[row][col] == 0)
+    if (CHESSBOARD[row][col] == 0)
     {
-        return true;
+        CHESSBOARD[row][col] = moveNumber;
     }
-    else if (CHESSBOARD[row][col] == 0)
+    if (row > ROW && col > COL, row < 0, col < 0 && CHESSBOARD[row][col] == 0)
     {
-
+        return false;
     }
     if (moveKnight(row + 1, col + 2, moveNumber + 1))
     {
@@ -87,4 +87,3 @@ void printChessBoard()
         }
     }
 }
-
