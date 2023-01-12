@@ -25,7 +25,11 @@ bool moveKnight(int row, int col, int moveNumber)
     {
         CHESSBOARD[row][col] = moveNumber;
     }
-    if (row > ROW && col > COL, row < 0, col < 0 && CHESSBOARD[row][col] == 0)
+    if(row > ROW && col > COL)
+    {
+        return false;
+    }
+    if (row < 0 && col < 0)
     {
         return false;
     }
