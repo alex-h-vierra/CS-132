@@ -1,22 +1,29 @@
 #include <iostream>
 #include <iomanip>
 
-#define ROW 5
-#define COL 5
+#define ROW 8
+#define COL 8
 int CHESSBOARD[ROW][COL];
+int NUMBEROFMOVES = 0;
 
 bool moveKnight(int row, int col, int moveNumber);
+
 void printChessBoard();
 
 int main()
 {
     moveKnight(0, 0, 1);
     printChessBoard();
+    std::cout << std::endl << NUMBEROFMOVES;
 }
 
 bool moveKnight(int row, int col, int moveNumber)
 {
-    int moveTries = 0;
+
+    if (row >= ROW || col >= COL || row < 0 || col < 0)
+    {
+        return false;
+    }
     if (moveNumber == ROW * COL)
     {
         return true;
@@ -25,54 +32,45 @@ bool moveKnight(int row, int col, int moveNumber)
     {
         CHESSBOARD[row][col] = moveNumber;
     }
-    if (row > ROW && col > COL, row < 0, col < 0 && CHESSBOARD[row][col] == 0)
+    else
     {
         return false;
     }
-    if (moveKnight(row + 1, col + 2, moveNumber + 1))
+    if (moveKnight(row + 1, col + 2, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row + 2, col + 1, moveNumber + 1))
+    else if (moveKnight(row + 2, col + 1, moveNumber + 1) && NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row + 2, col - 1, moveNumber + 1))
+    else if (moveKnight(row + 2, col - 1, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row + 1, col - 2, moveNumber + 1))
+    else if (moveKnight(row + 1, col - 2, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row - 1, col - 2, moveNumber + 1))
+    else if (moveKnight(row - 1, col - 2, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row - 2, col - 1, moveNumber + 1))
+    else if (moveKnight(row - 2, col - 1, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row - 2, col + 1, moveNumber + 1))
+    else if (moveKnight(row - 2, col + 1, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
-    else if (moveKnight(row + 2, col - 1, moveNumber + 1))
+    else if (moveKnight(row + 2, col - 1, moveNumber + 1)&& NUMBEROFMOVES++)
     {
-        moveTries + 1;
         return true;
     }
     else
     {
         CHESSBOARD[row][col] = 0;
-        return false;
     }
 }
 
