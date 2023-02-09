@@ -1,6 +1,8 @@
-//
-// Created by alexv on 1/19/2023.
-//
+/*
+ * @author Alex Vierra
+ * This interface is the holder to function members,
+ * and member data
+ * */
 
 #ifndef P2_MYSTRING_V1_AVSTRING_H
 #define P2_MYSTRING_V1_AVSTRING_H
@@ -10,35 +12,48 @@
 using namespace std;
 
 class AVString
-{    // You NEED to change the name of the class to reflect your
-    // name
-    //   for example Nancy Programmer would use the name NPString
+{
 public:
     AVString(); // default constructor
 
     AVString(const char *cstr); // cstring constructor
 
-    int length() ;
+    int length();
 
-    int capacity() ;
+    int capacity();
 
     char at(int index);
 
-    bool read(istream &inputStrm);
+    bool read(istream &inputStrm); //parameter is input stream name;
 
-    void write(ostream &outputStrm);
+    void write(ostream &outputStrm); //parameter is the output stream name
 
-    int compareTo( const AVString& argStr);
-    
+    void setEqualTo(const AVString &argStr); // parameter is the object string
 
-    void setEqualTo(const AVString &argStr);
+    const char *c_str(); //helps print string array
 
-    const char *c_str();
+    AVString operator +(const AVString &lV);
+
+    void checkCap();
+
+    bool operator == (const AVString &argStr);
+
+    int operator > (const AVString &argStr);
+
+    bool operator < (const AVString &argStr);
 
 private:
-    char *str;
-    int end;
-    int cap;
+
+
+    // went out of bounds
+    // that checks if bubble sort
+    // you want to compare
+    int compareTo(const AVString &argStr); //parameter is the object string
+    char *str; //data of the new string that's created
+    int end; //holds the end of string that's passed in
+    int cap; //calculate the length of string
 };
+
+
 
 #endif //P2_MYSTRING_V1_AVSTRING_H
